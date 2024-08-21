@@ -27,3 +27,30 @@
     display: inline-block;
     font-weight: 500;
 }
+
+@media (max-width:325px) {
+    .form-check{
+        margin-top: 3rem;
+    }
+}
+.form-check{
+    margin-top: 1.5rem;    
+}
+
+@media (max-width:427px){
+    .sign_up_text p{
+        display:block;
+        font-weight: 500;
+    }
+}
+.btn-sign{
+    background-color: #7242cd;
+    color: white;
+    padding: 6px 10px 8px 10px;
+}
+
+.btn-sign:hover{
+    background-color: #6a42b4;
+    color: white;
+    transition: background-color 0.15s,
+}

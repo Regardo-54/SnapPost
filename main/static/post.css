@@ -12,15 +12,32 @@
     margin-bottom: 20px;
 }
 .post_metadata{
-    display: flex;
+    display: block;
+    position: relative;
 }
 .post_image_container{
-    flex: 0.15;
+    display: inline-block;
 }
 .single_post_details{
-    flex: 1;
+    position: absolute;
+    left: 8.5rem;
     display: inline-block;
     margin: 20px auto;
+}
+@media (max-width:321px){
+    .post_metadata{
+        display: block;
+        position: relative;
+        height: 200px;
+    }
+    .single_post_details{
+        position: absolute;
+        left: 1rem;
+        top: 6rem;
+        display:block;
+        margin: 20px auto;
+    }
+
 }
 .post_article_author{
     display: block;

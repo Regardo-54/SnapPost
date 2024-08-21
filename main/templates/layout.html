@@ -13,18 +13,19 @@
     <link rel="stylesheet" href="{{url_for('static',filename='home.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='account.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='post.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='about.css')}}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary pt-0 pb-0">
+    <nav class="navbar navbar-expand-md bg-body-tertiary pt-0 pb-0">
         <div class="container-fluid nav_bar">
           <a class="navbar-brand pe-4 ps-4" href="#"><span class="brand_name_first">Snap</span><span class="brand_name_second">Post</span></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse me-0" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{{url_for('others.home')}}">Home</a>
-                <a class="nav-item nav-link" href="#">About</a>
+                <a class="nav-item nav-link" href="{{url_for('others.about')}}">About</a>
               </div>
               <div class="navbar-nav ms-auto pe-2">
                 {% if current_user.is_authenticated %}

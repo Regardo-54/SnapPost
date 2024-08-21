@@ -3,3 +3,4 @@ Include
 Lib
 pyvenv.cfg
 Scripts
+.env

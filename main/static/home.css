@@ -1,27 +1,16 @@
 .container-fluid{
     padding: 0 ;
 }
-.row_home{
-    display: flex;
-    margin: 0;
-    padding: 20px 2rem;
-   
-}
-.main-section{
-    flex: 2;
-}
+
 
 .media{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     margin-top: 10px;
     margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
 .media-body{
-    flex:1;
     background-color: #F7EFE5;
     padding: 2px 2rem;
     border-radius: 8px;
@@ -58,12 +47,15 @@ hr {
     margin-top: 4PX;
 }
 .article-title{
+    word-wrap: break-word;
     color: black;
 }
 .article-title:hover{
     color: rgba(22, 21, 21, 0.696);
 }
 .article-content{
+    word-wrap: break-word;
+    width: 100%;
     padding: 4px 0px;
     line-height: 24px;
 }
@@ -71,11 +63,12 @@ hr {
 .sidebar_content{
     position: fixed;
     background-color: #F7EFE5;
-    width: 30%;
+    width: 27%;
     box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.683);
     padding: 2rem 2rem;
     margin-top: 10px;
-    margin-left: 30px;
+    margin-left: 1rem;
+    margin-right: 1rem;
     border-radius: 8px;
 }
 
@@ -103,4 +96,57 @@ a{
 .article-content {
     white-space: pre-line;
   }
-  
+
+@media (max-width:766px){
+    .post_details{
+        display: block;
+       padding-top: 90px;
+    }
+    .article-metadata{
+        height: 190px;
+    }
+    .sidebar_content{
+        position: relative;
+        background-color: #F7EFE5;
+        width: 80%;
+        box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.683);
+        padding: 2rem 2rem;
+        margin-top: 10px;
+        margin-right: 1rem;
+        border-radius: 8px;
+    }
+    .media-body{
+        width: 90%;
+        background-color: #F7EFE5;
+        padding: 2px 2rem;
+        border-radius: 8px;
+        box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.683);
+    }
+    .media{
+        margin-top: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        margin-right: 2px;
+    }
+    .col-sm-12{
+        width: 90%;
+    }
+    .row{
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 766.02px) and (max-width: 1000px){
+    .sidebar_content{
+        background-color: #F7EFE5;
+        width: 25%;
+        box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.683);
+        padding: 2rem 2rem;
+        margin-top: 10px;
+        margin-left: 0.5rem;
+        border-radius: 8px;
+    }
+    .col-side{
+        margin-right: 0px;
+    }
+}

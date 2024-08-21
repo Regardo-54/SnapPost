@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="container-fluid contianer_home">
-    <div class="row row_home">
-        <div class="col main-section">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-sm-12 order-2 order-md-1 ms-4 mt-4">
             {% for post in posts.items %}
                 <article class="media">
                     <div class="media-body">
@@ -12,8 +12,8 @@
                             <a class="mr-2 article-author" href="{{url_for('posts.user_post',user_id=post.author.id)}}">{{ post.author.username }}</a>
                             <small class="text-muted date-text">{{ post.date_posted.strftime("%m/%d/%Y") }}</small>
                         </div>
-                    <hr>
                     </div>
+                    <hr>
                     <h2><a class="article-title" href="{{url_for('posts.post',post_id = post.id)}}">{{ post.title }}</a></h2>
                     <p class="article-content">{{ post.content }}</p>
                     {% if post.image != " "%}
@@ -25,7 +25,7 @@
                 </article>
             {% endfor %}
         </div>
-        <div class="col ">
+        <div class="col col-side order-1 order-md-2 mt-4">
                 <div class="sidebar_content">
                   <h3 class="mb-4">SnapPost</h3>
                     <ul class="list-group">

@@ -6,12 +6,14 @@ body{
     margin-top: 0;
     padding-top: 4px;
     padding-bottom: 6px;
-    object-position: center;
 }
 
 .navbar-brand{
     font-size: 35px;
 
+}
+.navbar-toggler:hover{
+    color: #7743DB;
 }
 .brand_name_first {
     font-weight: 500;
@@ -22,6 +24,7 @@ body{
     color: rgba(255, 255, 255, 0.822);
 }
 .nav-link {
+  margin-left: 2px;
   color: white;
   font-weight: 500;
   text-transform: uppercase;

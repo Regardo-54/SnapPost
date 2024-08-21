@@ -9,16 +9,16 @@
     border-radius: 50%;
 }
 .account{
-    display: flex;
+    position: relative;
 }
 .account_img{
-    flex:0.25;
+    display: inline-block;
 }
 .account_body{
-    flex: 1;
+    position: absolute;
+    left: 8rem;
     display: inline-block;
     color: black;
-    margin-right: 10px;
     justify-content: center;
 }
 .account_heading{
@@ -27,6 +27,22 @@
 .account_legend{
     font-weight: 700;
 }
-/* .form-group{
-    font-weight: 500;
-} */
+@media(max-width:645px){
+    .account{
+        height: 200px;
+    }
+    .account_img{
+        display: block;
+    }
+    .account_body{
+        display: block;
+        top: 6rem;
+        left: 0;
+    }
+    .acoount_container{
+        margin: 40px auto;
+        width: 70%;
+        padding: 10px 15px;
+        border-radius: 6px;
+    }
+}

@@ -1,0 +1,53 @@
+{% extends "layout.html"%} 
+{% block content %}
+<div class="content-section login_container">
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="mb-4 login_text">Login to Your Account</legend>
+            <div class="form-group">
+                {{form.email.label(class="form-label")}}
+                {% if form.email.errors %}
+                    {{form.email(class='form-control form-control-lg is-invalid')}}
+                    {% for error in form.email.errors %}
+                        <div class="invalid-feedback">
+                            <span>{{error}}</span>
+                        </div>
+                {% endfor %}
+                {% else %}
+                    {{form.email(class='form-control form-control-lg',placeholder="user@gmail.com")}}
+            {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.password.label(class='form-control-label')}}
+                <small class="test-muted pass_f">
+                    <a href="{{url_for('users.reset_request')}}">Forget password?</a>
+                </small>
+                {% if form.password.errors %}
+                {{form.password(class='form-control form-control-lg is-invalid')}}
+                {% for error in form.password.errors %}
+                    <div class="invalid-feedback">
+                        <span>{{error}}</span>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    {{form.password(class='form-control form-control-lg')}}
+            {% endif %}
+            </div>
+            <div class="form-check">
+                {{form.remember(class='form-check-input')}}
+                {{form.remember.label(class='form-check-label')}}
+            </div>
+        </fieldset>
+        <div class="form-group ms-auto">
+            {{form.submit(class='btn btn-outline-info')}}
+        </div>
+    </form>
+</div>
+<div class="sign_up_text">
+    <p class="bottom_text">
+        New Here?
+    </p>
+    <a href="{{url_for('users.registration')}}">Sign Up</a>
+</div>  
+{% endblock content%}

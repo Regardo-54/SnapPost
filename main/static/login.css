@@ -1,0 +1,29 @@
+.login_container{
+    width: 50%; 
+    margin: auto;
+    margin-top: 4rem;
+    padding: 20px 2rem;
+    height: fit-content ;
+}
+
+.login_text{
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+}
+.form-group{
+    position: relative;
+}
+.pass_f{
+    position: absolute;
+    right: 0px;
+}
+.sign_up_text{
+    margin-top: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.sign_up_text p{
+    display: inline-block;
+    font-weight: 500;
+}

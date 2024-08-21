@@ -1,0 +1,26 @@
+.content-section-regi{
+    width: 60%;
+    margin: auto;
+    margin-top: 4rem;
+    padding: 10px 2rem;
+}   
+.register_legend{
+    color:  #26282a;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.sign_in_text p{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.sign_in_text a{
+    color: black;
+    font-weight: 500;
+    padding: 5px 2rem;
+}
+
+.form-group{
+    margin-bottom: 6px;
+}

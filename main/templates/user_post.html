@@ -1,0 +1,46 @@
+{% extends "layout.html"%} 
+{% block content %}
+    <h1 class="mt-2 mb-3" style="text-align: center;">Posts of {{user.username}}({{posts.total}})</h1>
+{% for post in posts.items%}
+<article class="post">
+    <div class="content-section post_body">
+        <div class="post_metadata">
+            <div class="post_image_container">
+                <img class="post_author_image rounded-circle" src="{{ url_for('static',filename= 'profile_pic/' + post.author.image_file) }}">
+            </div>
+            <div class="single_post_details">
+                <div class="post_article_author">{{ post.author.username }}</div>
+                <small class="text-muted date-text">{{ post.date_posted.strftime("%m/%d/%Y") }}</small>
+            </div>
+        </div>
+        {% if post.author == current_user %}
+            <div>
+                <a class="btn btn-secondary btn-sm m-1" href="{{url_for('posts.update_post',post_id=post.id)}}">Update</a>
+                <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+            </div>
+        {% endif %}
+        <hr class="mt-2">
+            <h2 class="article-title">{{ post.title }}</h2>
+            <p class="article-content">{{ post.content }}</p>
+            {% if post.image != " "%}
+            <div class="post_image_container">
+                <img src="{{ url_for('static',filename= 'post_pic/' + post.image) }}" class="image-fluid post_image" alt="">
+            </div>  
+            {% endif%}
+        </div>
+    </article>
+  {% endfor%}
+  <div class="pagination_button">
+    {% for page_num in posts.iter_pages(right_edge = 1, left_edge=1, right_current=2, left_current=1)%}
+        {% if page_num %}
+          {% if page_num == posts.page %}
+                <a class="btn btn-info mt-3 mb-4" href="{{url_for('posts.user_post',user_id=user.id,page=page_num)}}">{{page_num}}</a>
+          {% else %}
+            <a class="btn btn-outline-info mt-3 mb-4" href="{{url_for('posts.user_post',user_id=user.id,page=page_num)}}">{{page_num}}</a>
+          {% endif %}
+        {% else %}
+           ...
+        {% endif %}
+    {% endfor%}
+</div>
+{% endblock content%}

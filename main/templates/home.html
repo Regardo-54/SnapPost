@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-fluid contianer_home">
+    <div class="row row_home">
+        <div class="col main-section">
+            {% for post in posts.items %}
+                <article class="media">
+                    <div class="media-body">
+                    <div class="article-metadata">
+                        <img class="author-image rounded-circle" src="{{ url_for('static',filename= 'profile_pic/'+ post.author.image_file) }}">
+                        <div class="post_details">
+                            <a class="mr-2 article-author" href="{{url_for('posts.user_post',user_id=post.author.id)}}">{{ post.author.username }}</a>
+                            <small class="text-muted date-text">{{ post.date_posted.strftime("%m/%d/%Y") }}</small>
+                        </div>
+                    <hr>
+                    </div>
+                    <h2><a class="article-title" href="{{url_for('posts.post',post_id = post.id)}}">{{ post.title }}</a></h2>
+                    <p class="article-content">{{ post.content }}</p>
+                    {% if post.image != " "%}
+                    <div class="post_image_container">
+                        <img src="{{ url_for('static',filename= 'post_pic/' + post.image) }}" class="image-fluid post_image" alt="">
+                    </div>  
+                    {% endif%}
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+        <div class="col ">
+                <div class="sidebar_content">
+                  <h3 class="mb-4">SnapPost</h3>
+                    <ul class="list-group">
+                      <li class="list-group-item list-group-item-light"><a href="{{url_for('posts.new_post')}}">Create a New Post</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="">Friends</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{url_for('users.account')}}">Account</a></li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<div class="pagination_button_home">
+    {% for page_num in posts.iter_pages(right_edge = 1, left_edge=1, right_current=2, left_current=1)%}
+        {% if page_num %}
+            {% if page_num == posts.page %}
+                <a class="btn btn-info  mb-4" href="{{url_for('others.home',page=page_num)}}">{{page_num}}</a>
+            {% else %}
+                <a class="btn btn-outline-info  mb-4" href="{{url_for('others.home',page=page_num)}}">{{page_num}}</a>
+            {% endif %}
+        {% else %}
+        ...
+        {% endif %}
+    {% endfor%}
+</div>
+{% endblock content %}
+

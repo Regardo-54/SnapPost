@@ -1,0 +1,31 @@
+.acoount_container{
+    margin: 40px auto;
+    width: 50%;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+.rounded-circle{
+        border-radius: 50%;
+}
+.account{
+    display: flex;
+}
+.account_img{
+    flex:0.25;
+}
+.account_body{
+    flex: 1;
+    display: inline-block;
+    color: black;
+    margin-right: 10px;
+    justify-content: center;
+}
+.account_heading{
+    margin-top:10px;
+}
+.account_legend{
+    font-weight: 700;
+}
+/* .form-group{
+    font-weight: 500;
+} */

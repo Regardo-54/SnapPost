@@ -1,0 +1,33 @@
+body{
+    background-color: rgba(228, 228, 228, 0.882)
+}
+.nav_bar {
+    background-color: #7743DB;
+    margin-top: 0;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    object-position: center;
+}
+
+.navbar-brand{
+    font-size: 35px;
+
+}
+.brand_name_first {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.653);
+  }
+.brand_name_second {
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.822);
+}
+.nav-link {
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.nav-link:hover{
+    color: gray;
+}

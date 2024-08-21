@@ -1,0 +1,42 @@
+.content-section{
+    display: block;
+    background-color: #F7EFE5;
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.683);
+    border-radius: 8px;
+}
+.post_body{
+    margin:auto;
+    padding: 20px 20px;
+    width:80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.post_metadata{
+    display: flex;
+}
+.post_image_container{
+    flex: 0.15;
+}
+.single_post_details{
+    flex: 1;
+    display: inline-block;
+    margin: 20px auto;
+}
+.post_article_author{
+    display: block;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.content-section-new-post{
+    margin: 40px auto;
+    padding: 20px 20px;
+    width:80%;
+}
+
+.pagination_button{
+   margin-left: 10% ;
+}
+.pagination_button_home{
+    margin-left: 3% ;
+ }

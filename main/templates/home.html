@@ -7,7 +7,7 @@
                 <article class="media">
                     <div class="media-body">
                     <div class="article-metadata">
-                        <img class="author-image rounded-circle" src="{{ url_for('static',filename= 'profile_pic/'+ post.author.image_file) }}">
+                        <img class="post_author_image rounded-circle" src="{{ url_for('static',filename= 'profile_pic/'+ post.author.image_file) }}">
                         <div class="post_details">
                             <a class="mr-2 article-author" href="{{url_for('posts.user_post',user_id=post.author.id)}}">{{ post.author.username }}</a>
                             <small class="text-muted date-text">{{ post.date_posted.strftime("%m/%d/%Y") }}</small>

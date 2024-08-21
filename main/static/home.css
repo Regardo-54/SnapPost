@@ -23,6 +23,10 @@
     margin-bottom: 0;
 }
 
+.post_author_image {
+    height: 110px;
+    width: 110px;
+}
 .post_details{
     position: absolute;
     top: 35px;

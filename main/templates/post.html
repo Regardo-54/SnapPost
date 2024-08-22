@@ -23,7 +23,7 @@
             <p class="article-content">{{ post.content }}</p>
             {% if post.image != " "%}
             <div class="post_image_container">
-                <img src="post.image" class="image-fluid post_image" alt="">
+                <img src="{{post.image}}" class="image-fluid post_image" alt="">
             </div>  
             {% endif%}
         </div>

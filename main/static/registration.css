@@ -24,3 +24,12 @@
 .form-group{
     margin-bottom: 6px;
 }
+
+@media (max-width:426px){
+    .content-section-regi{
+        width: 88%;
+        margin: auto;
+        margin-top: 4rem;
+        padding: 10px 2rem;
+    }  
+}

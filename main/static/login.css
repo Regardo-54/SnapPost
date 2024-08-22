@@ -38,10 +38,14 @@
 }
 
 @media (max-width:427px){
-    .sign_up_text p{
-        display:block;
-        font-weight: 500;
+    .login_container{
+        width: 80%; 
+        margin: auto;
+        margin-top: 4rem;
+        padding: 20px 2rem;
+        height: fit-content ;
     }
+    
 }
 .btn-sign{
     background-color: #7242cd;

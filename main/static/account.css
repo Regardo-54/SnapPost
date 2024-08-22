@@ -5,7 +5,7 @@
     border-radius: 6px;
 }
 .rounded-circle{
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 50%;
 }
 .account{

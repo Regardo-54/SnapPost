@@ -5,6 +5,7 @@ from main.models import User, Post
 from main.users.forms import (RegistrationForm, LoginForm, UpdateAccount,
                                    RequestResetForm, ResetPasswordForm)
 from main.users.utils import save_picture, send_reset_email,Hash
+import os
 
 users = Blueprint('users',__name__)
 
@@ -55,6 +56,7 @@ def account():
     if form.validate_on_submit():
         if form.image_file.data:
             picture_file = save_picture(form.image_file.data)
+            print(picture_file)
             current_user.image_file = picture_file
         current_user.username = form.username.data
         current_user.email = form.email.data
@@ -64,7 +66,7 @@ def account():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
-    image_file = url_for('static',filename='profile_pic/' + current_user.image_file)
+    image_file = current_user.image_file
     return render_template('account.html',title='account',image_file = image_file,form=form)
 
 @users.route('/reset_password',methods=['GET','POST'])

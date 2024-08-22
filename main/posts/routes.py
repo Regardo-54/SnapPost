@@ -9,6 +9,7 @@ from main.posts.utils import save_picture_post
 posts = Blueprint('posts',__name__)
 
 @posts.route('/new_post',methods=['GET','POST'])
+@login_required
 def new_post():
     form = Posts()
     if form.validate_on_submit():

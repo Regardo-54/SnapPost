@@ -5,7 +5,7 @@
     <div class="content-section post_body">
         <div class="post_metadata">
             <div class="post_image_container">
-                <img class="post_author_image rounded-circle" src="{{ url_for('static',filename= 'profile_pic/' + post.author.image_file) }}">
+                <img class="post_author_image rounded-circle" src="{{ post.author.image_file }}">
             </div>
             <div class="single_post_details">
                 <div class="post_article_author">{{ post.author.username }}</div>
@@ -23,7 +23,7 @@
             <p class="article-content">{{ post.content }}</p>
             {% if post.image != " "%}
             <div class="post_image_container">
-                <img src="{{ url_for('static',filename= 'post_pic/' + post.image) }}" class="image-fluid post_image" alt="">
+                <img src="post.image" class="image-fluid post_image" alt="">
             </div>  
             {% endif%}
         </div>

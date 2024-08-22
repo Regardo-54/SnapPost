@@ -9,24 +9,36 @@ from PIL import Image
 from flask import url_for, current_app
 import smtplib
 from email.message import EmailMessage
+import requests
+import base64
 
 load_dotenv()
 
 my_email = os.getenv('MY_EMAIL')
 password = os.getenv('EMAIL_PASSWORD')
+key = os.getenv("API_KEY_IMGBB")
+url = "https://api.imgbb.com/1/upload"
 
 def save_picture(form_picture):
     random_hax = secrets.token_hex(8)
     _ , file_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hax + file_ext
-    picture_path = os.path.join(current_app.root_path,'static/profile_pic',picture_fn)
 
-    output = (118,118)
+    
     i = Image.open(form_picture)
-    i.thumbnail(output)
-    i.save(picture_path)
-
-    return picture_fn
+    i.save(picture_fn)
+    
+    with open(picture_fn,'rb') as image_file:
+        params = {
+            "key" : key,
+            "image" : base64.b64encode(image_file.read()).decode('utf-8'),
+        }
+        response = requests.post(url, data=params)
+        response.raise_for_status()
+        response = response.json()
+        
+    os.remove(picture_fn)
+    return response['data']['image']['url']
 
 def send_reset_email(user):
     token = user.get_reset_token()

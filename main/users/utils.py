@@ -9,8 +9,9 @@ from PIL import Image
 from flask import url_for, current_app
 import smtplib
 from email.message import EmailMessage
-import requests
-import base64
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 load_dotenv()
 
@@ -29,16 +30,16 @@ def save_picture(form_picture):
     i.save(picture_fn)
     
     with open(picture_fn,'rb') as image_file:
-        params = {
-            "key" : key,
-            "image" : base64.b64encode(image_file.read()).decode('utf-8'),
-        }
-        response = requests.post(url, data=params)
-        response.raise_for_status()
-        response = response.json()
-        
+        cloudinary.config(
+            cloud_name = os.getenv("CLOUD_NAME") ,
+            api_key = os.getenv("API_KEY_COLUDINARY"),
+            api_secret = os.getenv("SECRET_KEY_COLUDINARY")
+        )
+        response = cloudinary.uploader.upload(picture_fn,transformation = [
+            {'width': 500, 'height': 500, 'crop': 'limit'}
+        ])
     os.remove(picture_fn)
-    return response['data']['image']['url']
+    return response['secure_url']
 
 def send_reset_email(user):
     token = user.get_reset_token()

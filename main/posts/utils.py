@@ -1,8 +1,10 @@
 import os
 import secrets
 from PIL import Image
-import requests,base64
 from flask import url_for, current_app
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 url = "https://api.imgbb.com/1/upload"
 
@@ -14,13 +16,11 @@ def save_picture_post(form_picture):
     i = Image.open(form_picture)
     i.save(picture_fn)
     with open(picture_fn,'rb') as image_file:
-        params = {
-            "key" : os.getenv("API_KEY_IMGBB"),
-            "image" : base64.b64encode(image_file.read()).decode('utf-8'),
-        }
-        response = requests.post(url, data=params)
-        response.raise_for_status()
-        response = response.json()
-        
+        cloudinary.config(
+            cloud_name = os.getenv("CLOUD_NAME") ,
+            api_key = os.getenv("API_KEY_COLUDINARY"),
+            api_secret = os.getenv("SECRET_KEY_COLUDINARY")
+        )
+        response = cloudinary.uploader.upload(picture_fn)
     os.remove(picture_fn)
-    return response['data']['image']['url']
+    return response['secure_url']
